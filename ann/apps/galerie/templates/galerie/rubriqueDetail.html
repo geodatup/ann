@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load cms_tags menu_tags sekizai_tags staticfiles thumbnail %}
+
+
+{% block header %}
+<h1>{% render_model rubrique "nom_rubrique" %}</h1>
+{% endblock header %}
+
+{% block content %}
+
+        {% if rubrique.oeuvre_set.all|length > 1 %}   
+        <p>{{ rubrique.oeuvre_set.all|length }} oeuvres</p>
+        {% else %}
+        <p>{{ rubrique.oeuvre_set.all|length }} oeuvre</p>
+        {% endif %}
+        {% if rubrique.commentaire %}
+        <p>{{ rubrique.commentaire }}</p>
+        {% endif %}
+
+<div class="pure-g">
+        <ul  class="list-inline" class="thumbnails"> 
+                {% for oeuvre in rubrique.oeuvre_set.all %}          
+                <div class="pure-u-1-4" >
+                        {% thumbnail oeuvre.photo '180x180' crop subject_location=oeuvre.photo.subject_location as photo %}
+                        <a href="{{ oeuvre.photo.url }}" data-lightbox="oeuvre.titre">
+
+                        <img class="pure-img-responsive"  src="{{ photo.url }}"  alt="{{ oeuvre.titre }}" >
+                        
+                        </a>
+                        <p class="nom-vignette-oeuvre">{% render_model oeuvre "titre" style %}
+                        <a href="{{ oeuvre.get_absolute_url }}"> <i class="fa fa-info-circle"></i></a></p>
+
+                </div>
+                {% endfor %}
+        </ul>
+
+</div>
+{% endblock content %}
+

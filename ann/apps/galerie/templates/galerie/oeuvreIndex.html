@@ -1,0 +1,55 @@
+{% extends CMS_TEMPLATE %}
+{% load cms_tags sekizai_tags staticfiles thumbnail %}
+ 
+{% block header %}
+<h1>Toutes les oeuvres</h1>
+{% endblock header %}
+ {% block content %}  
+  <div class="pure-g">
+	{% if latest_oeuvre_list %}
+	    
+	    {% for oeuvre in latest_oeuvre_list %}
+	    <div class="pure-u-1-4">
+	    {% thumbnail oeuvre.photo '180x180' crop subject_location=oeuvre.photo.subject_location as photo %}
+	
+		    <a href="{{ oeuvre.photo.url }}" data-lightbox="oeuvre.rubrique">
+		    	<img class="pure-img-responsive"  src="{{ photo.url }}"  alt="{{ oeuvre.titre }}">
+
+		    </a>
+		    <p class="nom-vignette-oeuvre">{% render_model oeuvre "titre" %}<a href="{{ oeuvre.get_absolute_url }}"></a></p>
+		    
+		</div>
+	    {% endfor %}
+	    
+
+	{% else %}
+	    <p>Aucune oeuvre n'existe.</p>
+	{% endif %}
+</div>
+
+{% if is_paginated %}
+        <div class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a class="link-previous"  href="./?page={{ page_obj.previous_page_number }}"><i class="fa fa-arrow-left"></i></a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} sur {{ page_obj.paginator.num_pages }}
+                </span>
+                {% if page_obj.has_next %}
+                    <a class="link-next" href="./?page={{ page_obj.next_page_number }}"><i class="fa fa-arrow-right"></i></a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+
+
+
+
+
+
+{% endblock content %}
+
+
+
+

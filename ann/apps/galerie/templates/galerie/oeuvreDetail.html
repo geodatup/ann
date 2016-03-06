@@ -1,0 +1,109 @@
+{% extends CMS_TEMPLATE %}
+{% load cms_tags menu_tags sekizai_tags staticfiles thumbnail %}
+
+
+{% block meta %} 
+<meta property="og:url"                content="{{ oeuvre.get_absolute_url }}" />
+<meta property="og:type"               content="Oeuvre d'art" />
+<meta property="og:title"              content="{{ oeuvre.titre }} réalisée par Ann!" />
+<meta property="og:description"        content="{{ oeuvre.technique }}" />
+<meta property="og:image"              content="{{ oeuvre.photo.url }}" />
+
+{% endblock meta %} 
+{% block title %} {{ oeuvre.titre }} {% endblock title %}
+
+
+
+
+{% block header %}
+<h1>{% render_model oeuvre "titre" %}</h1>
+{% endblock header %}
+
+{% block content %}
+	
+
+<div class="oeuvre-detail"  >
+	{% thumbnail oeuvre.photo '800x800' upscale subject_location=oeuvre.photo.subject_location as photo %}
+        
+                <img 
+                        src="{{ photo.url }}" 
+                        width="{{ photo.widht }}" 
+                        height="{{ photo.height }}" 
+                        alt="{{ oeuvre.titre}}"
+                > 
+        <div class="legende-oeuvre"  >
+        
+        {% if oeuvre.technique %}
+        <p>{{ oeuvre.technique }}</p>
+        {% endif %}    
+        {% if oeuvre.dimension %}
+        <p >{{ oeuvre.dimension }}</p>
+        {% endif %} 
+        </div>
+</div>
+
+
+<div class="social">
+    <div class="fb-like" 
+
+                    data-href="{{ oeuvre.get_absolute_url }}" 
+                    data-layout="standard" 
+                    data-action="like" 
+                    data-show-faces="true"
+                    data-share="true">
+
+                    
+    </div>
+    <div id="disqus_thread"  >
+        
+    </div>
+
+</div>
+
+
+
+
+
+
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//yogis.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+<script>
+    var content = document.getElementById('content');
+        content.style.maxWidth = '1000px';
+</script>
+
+{% endblock content %}
+
+

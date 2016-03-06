@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="">
+	{% if latest_rubrique_list %}
+	    <ul>
+	    {% for Rubrique in latest_rubrique_list %}
+	    <li><a href="{{ Rubrique.slug }}">{{ Rubrique.nom_rubrique }}</a></li>
+	    {% endfor %}
+	    </ul>
+	{% else %}
+	    <p>Aucune rubrique n'existe.</p>
+	{% endif %}
+</div>
+
+{% endblock content %}
+

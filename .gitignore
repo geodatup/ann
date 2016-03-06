@@ -1,0 +1,8 @@
+bkp_data.json
+*.pyc
+__pycache__
+myvenv
+project.db
+db.sqlite3
+.DS_Store
+/media
