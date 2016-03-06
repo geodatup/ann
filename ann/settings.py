@@ -153,6 +153,7 @@ INSTALLED_APPS = (
     'ann',
     'ann.apps.galerie',
     'import_export',
+    'gunicorn',
 )
 
 LANGUAGES = (

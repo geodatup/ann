@@ -39,13 +39,18 @@
                    {% show_index rubrique %}
                 </div>
             </div>    
-    </div>        
+    </div>  
+
+    <div id="footer">
+
+        {% include "footer.html" %}      
         {% render_block "js" %}
          <script src="{% static "js/lightbox-plus-jquery.min.js"%}"></script>
           <script src="{% static "js/ui.js"%}"></script>
+        
     </body>
 
-
     
+        
 </html>
 <body>
