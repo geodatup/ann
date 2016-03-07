@@ -9,7 +9,7 @@ SECRET_KEY = 'kl(1et7az7t-+(5^+z)yel36g*r+#be)kaev0sc#97%0=bx^l@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS += (
     'gunicorn', # other apps for production site
