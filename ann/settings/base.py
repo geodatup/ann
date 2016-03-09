@@ -81,7 +81,7 @@ TEMPLATES = [
         os.path.join(BASE_DIR, 'ann', 'templates'),
         os.path.join(BASE_DIR, 'ann', 'apps','galerie','templates','galerie'),
         os.path.join(BASE_DIR, 'ann', 'apps','galerie','templates','admin'),
-        ]
+        ],
         'OPTIONS': {
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
