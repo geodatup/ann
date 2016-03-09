@@ -77,7 +77,11 @@ SITE_ID = 1
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'ann', 'templates'),'/home/yogis/Projects/ann/ann/apps/galerie/templates/galerie'],
+        'DIRS': [
+        os.path.join(BASE_DIR, 'ann', 'templates'),
+        os.path.join(BASE_DIR, 'ann', 'apps','galerie','templates','galerie'),
+        os.path.join(BASE_DIR, 'ann', 'apps','galerie','templates','admin'),
+        ]
         'OPTIONS': {
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
@@ -205,3 +209,14 @@ THUMBNAIL_PROCESSORS = (
 
 
 FILER_DUMP_PLAYLOAD = True
+
+
+
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
+STATIC_ROOT = os.path.join(DATA_DIR, 'static')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'ann', 'static'),
+)
