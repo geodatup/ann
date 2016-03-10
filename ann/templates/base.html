@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
         {% block meta %} {% endblock meta %} 
         <link rel="stylesheet" type="text/css" href="{% static "css/style.css"%}">
+        <link rel="stylesheet" type="text/css" href="{% static "css/footer.css"%}">
         <link rel="stylesheet" type="text/css" href="{% static "css/layouts/side-menu.css"%}">
         <link rel="stylesheet" type="text/css" href="{% static "css/layouts/pure-min.css"%}">
         <link rel="stylesheet" href="{% static "css/lightbox.min.css"%}">
@@ -41,14 +42,21 @@
             </div>    
     </div>  
 
-    <div id="footer">
 
-        {% include "footer.html" %}      
-        {% render_block "js" %}
-         <script src="{% static "js/lightbox-plus-jquery.min.js"%}"></script>
-          <script src="{% static "js/ui.js"%}"></script>
+
+<footer>
+
+
+{% include "footer.html" %}      
+{% render_block "js" %}
+
+
+<script src="{% static "js/lightbox-plus-jquery.min.js"%}"></script>
+<script src="{% static "js/ui.js"%}"></script>
         
-    </body>
+</footer>
+
+</body>
 
     
         
