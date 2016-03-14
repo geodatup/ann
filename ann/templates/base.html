@@ -7,12 +7,13 @@
         
         <meta name="viewport" content="width=device-width,initial-scale=1">
         {% block meta %} {% endblock meta %} 
-        <link rel="stylesheet" type="text/css" href="{% static "css/style.css"%}">
+        
         <link rel="stylesheet" type="text/css" href="{% static "css/footer.css"%}">
         <link rel="stylesheet" type="text/css" href="{% static "css/layouts/side-menu.css"%}">
         <link rel="stylesheet" type="text/css" href="{% static "css/layouts/pure-min.css"%}">
         <link rel="stylesheet" href="{% static "css/lightbox.min.css"%}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static "css/style.css"%}">
 
         {% render_block "css" %}
     </head>
@@ -20,9 +21,8 @@
     <body>
         {% cms_toolbar %}
 
-    
     <div id="layout">      
-     
+     {% include "signature_logo.html" %}
     <a href="#menu" id="menuLink" class="menu-link">
         <!-- Hamburger icon -->
         <span></span>
@@ -60,7 +60,8 @@
 <script src="{% static "js/lightbox-plus-jquery.min.js"%}"></script>
 <script src="{% static "js/ui.js"%}"></script>
 <script src="{% static "js/jquery.lazylinepainter-1.7.0.min.js"%}"></script>
-<script src="{% static "js/signature.js"%}"></script>
+<script src="{% static "js/logosignature.js"%}"></script>
+
 
 
 </footer>

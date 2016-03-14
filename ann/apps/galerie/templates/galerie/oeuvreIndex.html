@@ -25,8 +25,13 @@
 			    	<img class="pure-img-responsive"  src="{{ photo.url }}"  alt="{{ oeuvre.titre }}">
 
 			    </a>
-			    <p class="nom-vignette-oeuvre">{% render_model oeuvre "titre" %}<a href="{{ oeuvre.get_absolute_url }}"></a></p>
-			    
+			   
+			    <div class=vignette-oeuvre>
+                    <p>{% render_model oeuvre "titre" style %}
+                </div>
+                <div class=vignette-oeuvre>
+                	<a href="{{ oeuvre.get_absolute_url }}"> <i class="fa fa-info-circle"></i></a>
+                </div>
 			</div>
 		    {% endfor %}
 		    

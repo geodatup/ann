@@ -219,6 +219,34 @@ div[id = "col-2"]{
 	*width:30%;
 
 }
+
+@keyframes myAnim {
+    to {
+    	margin-top: 0px;
+    	width: 100px;
+    	height: 100px;
+   	
+   }
+
+
+}
+
+#signature_ann {
+	margin-top: -50px;
+	width: 500px;
+	height: 500px;
+	animation: myAnim 1s forwards;
+	animation-delay: 5s;
+    
+}
+
+#logo_signature_ann {
+	float: left;
+	width: 100px;
+	height: 100px;
+	margin-left: -300px;
+}
+
 /* -- Responsive Styles (Media Queries) ------------------------------------- */
 
 /*
@@ -239,13 +267,28 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     */
 
 
-.vignette-oeuvre > p{
+.vignette-oeuvre > p, div[class*="cms-plugin-galerie-oeuvre-titre"]{
 	display: none;
 	margin-top: 0px;
 	margin-bottom: 0px;
 	padding-right: 0px; 
 	padding-left: 0px;
 }
+.vignette-oeuvre > a > i, div[class*="cms-plugin-galerie-oeuvre-titre"]{
+	display: none;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-right: 0px; 
+	padding-left: 0px;
+}
+#layout.active #menu {
+    width: 320px;
+}
+
+#layout.active .menu-link {
+    left: 250px;
+}
+
 
 
 .list-inline {
@@ -271,21 +314,4 @@ Hides the menu at `48em`, but modify this based on your app's needs.
 
 
 
-@keyframes myAnim {
-    to {width: 100px;
-    	height: 100px;
-   	
-   }
 
-
-}
-
-
-
-#signature_ann {
-	width: 500px;
-	height: 500px;
-	animation: myAnim 1s forwards;
-	animation-delay: 5s;
-    
-}

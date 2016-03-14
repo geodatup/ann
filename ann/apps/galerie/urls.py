@@ -5,7 +5,7 @@ from .views import RubriqueListView, RubriqueDetailView, OeuvreListView, OeuvreD
 
 app_name = 'galerie'
 urlpatterns = patterns('',
-	url(r'^$', views.OeuvreListView.as_view(), name='oeuvreIndex'),
+	url(r'^$', views.accueil.as_view(), name='acceuil'),
 	url(r'^accueil/$', views.accueil.as_view(), name='acceuil'),
     url(r'^rubrique/$', views.RubriqueListView.as_view(), name='rubriqueIndex'),
     url(r'^rubrique/(?P<slug>[^/]+)', views.RubriqueDetailView.as_view(), name='rubriqueDetail'),
