@@ -7,8 +7,9 @@ register = template.Library()
 
 
 
-@register.inclusion_tag('rubriqueMenu.html')
-def show_index(rubrique):
-    rubriqueList = Rubrique.objects.order_by('nom_rubrique')
+@register.inclusion_tag('rubriqueMenu.html',takes_context=True)
+def show_index(context, rubrique):
+    request = context['request']
+    rubriqueList = Rubrique.objects.order_by('annee')
     
-    return {'rubriqueList': rubriqueList}
+    return {'rubriqueList': rubriqueList, 'request':request}

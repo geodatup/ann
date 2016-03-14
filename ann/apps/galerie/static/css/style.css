@@ -1,4 +1,21 @@
 
+.vignette-oeuvre > p, div[class*="cms-plugin-galerie-oeuvre-titre"]{
+	margin-right: 5px;
+	float: left;
+	width: 120px;
+}
+.vignette-oeuvre > a > i, div[class*="cms-plugin-galerie-oeuvre-titre"]{
+
+	margin-top: 16px;
+	margin-bottom: 16px;
+ 
+}
+
+.pure-menu-item.active{
+    background: #ddd;
+}
+
+
 .main{
 	min-height: 1000px;
 }
@@ -43,7 +60,6 @@
 }
 .nav li.selected, .nav li.ancestor {
 	background: hsla(204, 16%, 66%, 0.2);
-
 }
 
 .nav li:hover > a {
@@ -86,13 +102,10 @@
 	margin: 1em 0 0 0;
 }
 
-
-
 .oeuvre-detail > img {
 	float: right;
-	/*padding-right: 500px;
-	
-	padding-top: 50px;*/
+	max-height: 800px;
+	max-width: 800px;
 	
 }
 .oeuvre-detail > h1 {
@@ -102,10 +115,10 @@
 	
 }
 
-.oeuvre-detail > p{
-	/*color: white;*/
+.oeuvre-detail > p {
 	padding-left: 50px;
 	line-height: 10px;
+	max-width: 380px;
 }
 
 
@@ -113,29 +126,41 @@ a > .fa {
   display: inline-block;
   color: grey;
   float: right;
-  padding-right: 10px;
+  padding-right: 5px;
+  padding-left: 5px;
   padding-top: 5px;
 }
 
 
 .legende-oeuvre {
-	padding-right: 610px;
+	max-width: 380px;
 }
 
 
 .legende-oeuvre > p{
-	text-align: center;
+	text-align: justify;
 }
 
 
-div[class*="cms-plugin-galerie-oeuvre-titre"] {
+div[class*="cms-plugin-galerie-oeuvre-titre"]{
 	text-align: center;
 }
 
-.pure-u-1-4 {
-	text-align: center;
+div[class*="cms-plugin-galerie-rubrique-article"] {
+	letter-spacing: 0;
+	text-align : justify;
+} 
+.pure-g > p, .pure-g > h1, .pure-g > h2 {
+	letter-spacing: 0;
+	text-align : justify;
 }
-.pure-u-1-4 > p {
+
+.pure-u-1-5 {
+	text-align: center;
+	padding-right: 5px; 
+	padding-left: 5px;
+}
+.pure-u-1-5 > p {
 	padding-right: 30px; 
 	padding-left: 30px;
 }
@@ -165,21 +190,36 @@ div[class*="cms-plugin-galerie-oeuvre-titre"] {
 
 .link-next{
 	float: right;
+	padding-right: 120px;
 }
 
 .social{
-
 	padding-right: 400px; 
 	padding-left: 200px;
 }
 
 div[class*="fb-like"] {
-	padding-top: 200px;
+	padding-top: 0px;
 }
 
  
 
+.col {	
+	display: inline-block;
+	vertical-align: top;
+}
 
+div[id = "col-1"]{
+	width:60%;
+	*width:60%;
+
+}
+
+div[id = "col-2"]{
+	width:30%;
+	*width:30%;
+
+}
 /* -- Responsive Styles (Media Queries) ------------------------------------- */
 
 /*
@@ -200,7 +240,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     */
 
 
-.nom-vignette-oeuvre {
+.vignette-oeuvre > p{
 	display: none;
 	margin-top: 0px;
 	margin-bottom: 0px;
@@ -208,17 +248,18 @@ Hides the menu at `48em`, but modify this based on your app's needs.
 	padding-left: 0px;
 }
 
+
 .list-inline {
 	padding-left: 0px;
 }
 
 .oeuvre-detail > img {
-	width:400px;
-	height: 400px;
-	
+	width:50%;
+	height:50%;
 }
 .legende-oeuvre {
 	padding-right: 0px;
+	max-width: 100px;
 }
 
 
@@ -228,6 +269,24 @@ Hides the menu at `48em`, but modify this based on your app's needs.
 .social{
 	padding: 0px;
 }
+
+
+
+@keyframes myAnim {
+    to {width: 100px;
+    	height: 100px;
+   	
+   }
+
+
 }
 
 
+
+#signature_ann {
+	width: 500px;
+	height: 500px;
+	animation: myAnim 1s forwards;
+	animation-delay: 5s;
+    
+}

@@ -1,16 +1,13 @@
-{% extends "base.html" %}
-{% load cms_tags sekizai_tags staticfiles thumbnail rubrique_index %}
-
-
-{% block menu_rub %}
-<div class="pure-menu-active">
-
-{% show_index rubrique %}
-</div>
-{% endblock menu_rub %}
+{% extends "base_without_rub.html" %}
+{% load cms_tags sekizai_tags staticfiles thumbnail %}
 
 {% block content %}
 <div id="content" class="content">
+{% if page_obj.has_previous %}
+{% else %}
+	{% include "signature.html" %}                    
+{% endif %}
+
 	{% block header %}
 	<h1>Les oeuvres</h1>
 	{% endblock header %}
@@ -29,8 +26,6 @@
 			    
 			</div>
 		    {% endfor %}
-		    
-
 		{% else %}
 		    <p>Aucune oeuvre n'existe.</p>
 		{% endif %}
@@ -51,9 +46,6 @@
 	            </span>
 	</div>
 	{% endif %}
-
-	
-
 
 </div>
 {% endblock content %}

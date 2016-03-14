@@ -4,12 +4,14 @@ from __future__ import unicode_literals
 from django.core.urlresolvers import reverse
 from django.db import models
 from filer.fields.image import FilerImageField
-from cms.models.fields import PlaceholderField
+from djangocms_text_ckeditor.fields import HTMLField
 
 # Create your models here.
 class Rubrique(models.Model):
     nom_rubrique = models.CharField(max_length=30)
+    annee = models.PositiveIntegerField(blank=True, null=True)
     commentaire = models.TextField(blank=True, null=True)
+    article = HTMLField(blank=True, null=True)
     slug = models.SlugField(
         u'slug',
         blank=False,
@@ -43,5 +45,6 @@ class Oeuvre(models.Model):
     )
     def get_absolute_url(self):
         return reverse('galerie:oeuvreDetail', kwargs={'slug': self.slug, })
+
     def __str__(self):
         return self.titre

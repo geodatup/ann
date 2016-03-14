@@ -1,9 +1,8 @@
 
-{% load cms_tags sekizai_tags staticfiles thumbnail %}
+{% load cms_tags sekizai_tags staticfiles thumbnail mytags %}
 <ul class="pure-menu-list">
-	<li class="pure-menu-item"><a href="{% url 'galerie:oeuvreIndex' %}" class="pure-menu-link">Toutes les oeuvres</a></li>
 {% for rubrique in rubriqueList %}
-    <li class="pure-menu-item">
+    <li class="{% active rubrique.get_absolute_url %}">
     
     {% thumbnail rubrique.icon '50x50' crop subject_location=rubrique.icon.subject_location as icon %}
 

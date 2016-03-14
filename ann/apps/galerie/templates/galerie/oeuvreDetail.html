@@ -1,5 +1,5 @@
-{% extends CMS_TEMPLATE %}
-{% load cms_tags menu_tags sekizai_tags staticfiles thumbnail %}
+{% extends "base.html" %}
+{% load cms_tags menu_tags sekizai_tags staticfiles thumbnail rubrique_index_oeuvre %}
 
 
 {% block meta %} 
@@ -10,38 +10,46 @@
 <meta property="og:image"              content="{{ oeuvre.photo.url }}" />
 
 {% endblock meta %} 
-{% block title %} {{ oeuvre.titre }} {% endblock title %}
+
+{% block menu_rub %}
+<div class="pure-menu-active">
+{% show_index rubrique oeuvre.slug %}
+</div>
+{% endblock menu_rub %}
 
 
+{% block title %} {{ oeuvre.titre }} 
+
+{% endblock title %}
 
 
-{% block header %}
-<h1>{% render_model oeuvre "titre" %}</h1>
-{% endblock header %}
 
 {% block content %}
-	
 
-<div class="oeuvre-detail"  >
-	{% thumbnail oeuvre.photo '800x800' upscale subject_location=oeuvre.photo.subject_location as photo %}
-        
-                <img 
-                        src="{{ photo.url }}" 
-                        width="{{ photo.widht }}" 
-                        height="{{ photo.height }}" 
-                        alt="{{ oeuvre.titre}}"
-                > 
-        <div class="legende-oeuvre"  >
-        
-        {% if oeuvre.technique %}
-        <p>{{ oeuvre.technique }}</p>
-        {% endif %}    
-        {% if oeuvre.dimension %}
-        <p >{{ oeuvre.dimension }}</p>
-        {% endif %} 
-        </div>
+
+
+<div id="content" class="content" >	
+    <h1>{% render_model oeuvre "titre" %}</h1>
+    <div class="oeuvre-detail"  >
+    	{% thumbnail oeuvre.photo '800x800' upscale subject_location=oeuvre.photo.subject_location as photo %}
+            
+                    <img 
+                            src="{{ photo.url }}" 
+                            width="{{ photo.widht }}" 
+                            height="{{ photo.height }}" 
+                            alt="{{ oeuvre.titre}}"
+                    > 
+            <div class="legende-oeuvre"  >
+            
+            {% if oeuvre.technique %}
+            <p>{{ oeuvre.technique }}</p>
+            {% endif %}    
+            {% if oeuvre.dimension %}
+            <p >{{ oeuvre.dimension }}</p>
+            {% endif %} 
+            </div>
+    </div>
 </div>
-
 
 <div class="social">
     <div class="fb-like" 
@@ -54,7 +62,7 @@
 
                     
     </div>
-    <div id="disqus_thread"  >
+    <div id="disqus_thread">
         
     </div>
 
@@ -101,7 +109,7 @@ s.setAttribute('data-timestamp', +new Date());
 
 <script>
     var content = document.getElementById('content');
-        content.style.maxWidth = '1000px';
+        content.style.maxWidth = '1200px';
 </script>
 
 {% endblock content %}

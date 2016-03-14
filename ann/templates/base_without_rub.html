@@ -1,4 +1,4 @@
-{% load cms_tags menu_tags sekizai_tags staticfiles  %}
+{% load cms_tags menu_tags sekizai_tags staticfiles rubrique_index %}
 
 <!doctype html>
 <html>
@@ -30,9 +30,7 @@
         <div class="main">
             
             <div class="header">
-
                 <ul class="nav">
-                
                 {% show_menu 0 100 100 100 %}
                 </ul>                         
             </div> 
@@ -42,10 +40,7 @@
                 {% block article %}{% endblock article %}
 
         </div>
-        <div id="menu">
-           {% block menu_rub %}{% endblock menu_rub %}
-                
-        </div>    
+           
     </div>  
 
 

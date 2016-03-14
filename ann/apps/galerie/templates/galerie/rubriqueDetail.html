@@ -1,39 +1,105 @@
 {% extends "base.html" %}
-{% load cms_tags menu_tags sekizai_tags staticfiles thumbnail %}
+{% load cms_tags menu_tags sekizai_tags staticfiles thumbnail rubrique_index%}
 
 
-{% block header %}
-<h1>{% render_model rubrique "nom_rubrique" %}</h1>
-{% endblock header %}
+{% block menu_rub %}
+<div class="pure-menu-active">
 
-{% block content %}
-
-        {% if rubrique.oeuvre_set.all|length > 1 %}   
-        <p>{{ rubrique.oeuvre_set.all|length }} oeuvres</p>
-        {% else %}
-        <p>{{ rubrique.oeuvre_set.all|length }} oeuvre</p>
-        {% endif %}
-        {% if rubrique.commentaire %}
-        <p>{{ rubrique.commentaire }}</p>
-        {% endif %}
-
-<div class="pure-g">
-        <ul  class="list-inline" class="thumbnails"> 
-                {% for oeuvre in rubrique.oeuvre_set.all %}          
-                <div class="pure-u-1-4" >
-                        {% thumbnail oeuvre.photo '180x180' crop subject_location=oeuvre.photo.subject_location as photo %}
-                        <a href="{{ oeuvre.photo.url }}" data-lightbox="oeuvre.titre">
-
-                        <img class="pure-img-responsive"  src="{{ photo.url }}"  alt="{{ oeuvre.titre }}" >
-                        
-                        </a>
-                        <p class="nom-vignette-oeuvre">{% render_model oeuvre "titre" style %}
-                        <a href="{{ oeuvre.get_absolute_url }}"> <i class="fa fa-info-circle"></i></a></p>
-
-                </div>
-                {% endfor %}
-        </ul>
-
+{% show_index rubrique %}
 </div>
-{% endblock content %}
+{% endblock menu_rub %}
 
+{% block content %} 
+{% if rubrique.article %}
+<div class="2colonnes">  
+        <div class="col" id="col-1" >              
+                <div id="content" class="content">   
+
+                <h1>{% render_model rubrique "nom_rubrique" %}</h1>
+ 
+
+                        {% if rubrique.commentaire %}
+                        <p>{{ rubrique.commentaire }}</p>
+                        {% endif %}
+
+                        <div class="pure-g">
+                                <ul  class="list-inline" class="thumbnails"> 
+                                        {% for oeuvre in rubrique.oeuvre_set.all %}          
+                                        <div class="pure-u-1-5" >
+                                                {% thumbnail oeuvre.photo '180x180' crop subject_location=oeuvre.photo.subject_location as photo %}
+                                                <a href="{{ oeuvre.photo.url }}" data-lightbox="oeuvre.titre">
+
+                                                <img class="pure-img-responsive"  src="{{ photo.url }}"  alt="{{ oeuvre.titre }}" >
+                                                
+                                                </a>
+                                                <div class=vignette-oeuvre>
+                                                        <p>{% render_model oeuvre "titre" style %}
+                                                </div>
+                                                <div class=vignette-oeuvre>
+                                                        <a href="{{ oeuvre.get_absolute_url }}"> <i class="fa fa-info-circle"></i></a>
+                                                </div>
+
+
+                                        </div>
+                                        {% endfor %}
+                                </ul>
+
+                        </div>
+                
+
+
+                </div>   
+        </div>
+
+        
+        <div class="col" id="col-2" >   
+                <div id="content" class="content">
+                        <div class="pure-g">
+                        
+                        <p>{% render_model rubrique "article"  %}</p>
+                        
+                        </div>
+                </div>
+        </div>
+        
+</div>
+{% else %}
+
+<div id="content" class="content">   
+                
+                <h1>{% render_model rubrique "nom_rubrique" %}</h1>
+
+
+                        {% if rubrique.commentaire %}
+                        <p>{{ rubrique.commentaire }}</p>
+                        {% endif %}
+
+                        <div class="pure-g">
+                                <ul  class="list-inline" class="thumbnails"> 
+                                        {% for oeuvre in rubrique.oeuvre_set.all %}          
+                                        <div class="pure-u-1-5" >
+                                                {% thumbnail oeuvre.photo '180x180' crop subject_location=oeuvre.photo.subject_location as photo %}
+                                                <a href="{{ oeuvre.photo.url }}" data-lightbox="oeuvre.titre">
+
+                                                <img class="pure-img-responsive"  src="{{ photo.url }}"  alt="{{ oeuvre.titre }}" >
+                                                
+                                                </a>
+                                                <div class=vignette-oeuvre>
+                                                        <p>{% render_model oeuvre "titre" style %}
+                                                </div>
+                                                <div class=vignette-oeuvre>
+                                                        <a href="{{ oeuvre.get_absolute_url }}"> <i class="fa fa-info-circle"></i></a>
+                                                </div>
+
+                                        </div>
+                                        {% endfor %}
+                                </ul>
+
+                        </div>
+                
+
+
+                </div>  
+
+{% endif %}
+{% endblock content %}

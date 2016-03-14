@@ -8,6 +8,14 @@ source myvenv/bin/activate
 
 djangocms -f -p . ann
 
+
+export DJANGO_SETTINGS_MODULE=ann.settings.local
+export DJANGO_SETTINGS_MODULE=ann.settings.production
+
+python manage.py makemigrations galerie
+python manage.py migrate
+
+
 python manage.py runserver
 
 
@@ -51,8 +59,12 @@ git remote add origin https://github.com/geodatup/ann.git
 git push origin master
 
 
-# sur pi
+# sur pi clone
 git clone https://github.com/geodatup/quorelcms.git
+
+
+# sur client pull
+git pull https://github.com/geodatup/ann.git master
 
 # créer un env virtuel
 cd quorelcms
@@ -61,6 +73,12 @@ source myvenv/bin/activate
 
 # installer django et les requierment (requirement.mb)
 ...
+# lancer la migration
+Necéssite de créer un autre projet cms à coté puis de lancer 
+python manage.py migrate 
+dans le projet quorelcms
+(sinon ça ne marche pas... la table n'existe pas dit il...)
+
 
 # deplacer les fichiers media
 # load le dump
@@ -72,11 +90,6 @@ python manage.py loaddata data_final.json
 python manage.py collectstatic
 
 
-# lancer la migration
-Necéssite de créer un autre projet cms à coté puis de lancer 
-python manage.py migrate 
-dans le projet quorelcms
-(sinon ça ne marche pas... la table n'existe pas dit il...)
 
 
 # creer le super utilisateur

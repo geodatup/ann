@@ -4,6 +4,11 @@ from django import forms
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
+from cms.admin.placeholderadmin import PlaceholderAdminMixin
+
+
+
+
 # Register your models here.
 from .models import Rubrique, Oeuvre
 
@@ -40,11 +45,14 @@ class RubriqueResource(resources.ModelResource):
     class Meta:
         model = Rubrique
 
-class RubriqueAdmin(ImportExportModelAdmin):
-	fieldsets = [
+class RubriqueAdmin(PlaceholderAdminMixin, ImportExportModelAdmin):
+  list_display = ('nom_rubrique','annee')
+  fieldsets = [
         (None, {'fields': (
           'nom_rubrique',
+          'annee',
           'commentaire',
+          'article',
           'icon'    
         )         
         }),
@@ -52,8 +60,8 @@ class RubriqueAdmin(ImportExportModelAdmin):
             'classes': ('collapse',),
             'fields': ('slug',),
         }),
-    ]
-	prepopulated_fields = {'slug': ('nom_rubrique','icon'), }
+        ]
+  prepopulated_fields = {'slug': ('nom_rubrique','icon'), }
 
 
 

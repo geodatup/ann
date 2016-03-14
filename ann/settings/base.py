@@ -94,7 +94,8 @@ TEMPLATES = [
     'django.core.context_processors.tz',
     'sekizai.context_processors.sekizai',
     'django.core.context_processors.static',
-    'cms.context_processors.cms_settings'
+    'cms.context_processors.cms_settings',
+    
             ],
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
@@ -188,7 +189,8 @@ CMS_TEMPLATES = (
 
 CMS_PERMISSION = True
 
-CMS_PLACEHOLDER_CONF = {}
+CMS_PLACEHOLDER_CONF = {
+}
 
 
 
@@ -210,6 +212,10 @@ THUMBNAIL_PROCESSORS = (
 
 FILER_DUMP_PLAYLOAD = True
 
+
+CMS_STYLE_NAMES = (
+    ('content', ("content")),
+)
 
 
 STATIC_URL = '/static/'

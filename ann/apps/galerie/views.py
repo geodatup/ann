@@ -8,8 +8,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 def index(request):
-   
-    return render(request, 'galerie/annIndex.html')
+    return render(request, 'galerie/accueil.html')
 
 
 
@@ -30,9 +29,17 @@ class OeuvreListView(generic.ListView):
     template_name = 'galerie/oeuvreIndex.html'
     
     context_object_name = 'latest_oeuvre_list'
-    queryset = Oeuvre.objects.order_by('titre')
+    queryset = Oeuvre.objects.all().order_by('rubrique__annee')
     paginate_by = 12
 
+
+class accueil(generic.ListView):
+    model = Oeuvre
+    template_name = 'galerie/accueil.html'
+    
+    context_object_name = 'latest_oeuvre_list'
+    queryset = Oeuvre.objects.all().order_by('rubrique__annee')
+    paginate_by = 12
 
 
 
