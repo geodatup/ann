@@ -104,7 +104,7 @@
 
 .oeuvre-detail > img {
 	float: right;
-	max-height: 800px;
+	max-height: 600px;
 	max-width: 800px;
 	
 }
@@ -186,8 +186,6 @@ div[class*="cms-plugin-galerie-rubrique-article"] {
 	float: left;
 }
 
-
-
 .link-next{
 	float: right;
 	padding-right: 120px;
@@ -196,6 +194,7 @@ div[class*="cms-plugin-galerie-rubrique-article"] {
 .social{
 	padding-right: 400px; 
 	padding-left: 200px;
+	position: absolute;
 }
 
 div[class*="fb-like"] {
