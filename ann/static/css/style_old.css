@@ -11,8 +11,6 @@
  
 }
 
-
-
 .pure-menu-item.active{
     background: #ddd;
 }
@@ -123,25 +121,14 @@
 	max-width: 380px;
 }
 
-.fa {
-	  color: grey;
-	  display: inline-block;
-}
-a > .fa-info-circle {
+
+a > .fa {
+  display: inline-block;
+  color: grey;
   float: right;
   padding-right: 5px;
   padding-left: 5px;
   padding-top: 5px;
-}
-
- a > .fa-commenting-o {
-
-}
-
-.oeuvre-detail > a {
-text-decoration: none;
-color: grey;
-display: inline-block;
 }
 
 
@@ -205,14 +192,13 @@ div[class*="cms-plugin-galerie-rubrique-article"] {
 }
 
 .social{
-	
-	
+	padding-right: 400px; 
+	padding-left: 200px;
 	position: absolute;
 }
 
 div[class*="fb-like"] {
 	padding-top: 0px;
-	width: 380px;
 }
 
  
@@ -327,5 +313,5 @@ Hides the menu at `48em`, but modify this based on your app's needs.
 }
 
 
-}
+}/*responsiv max-width: 48em*/
 
