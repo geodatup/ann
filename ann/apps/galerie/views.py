@@ -29,19 +29,18 @@ class OeuvreListView(generic.ListView):
     template_name = 'galerie/oeuvreIndex.html'
     
     context_object_name = 'latest_oeuvre_list'
-    #queryset = Oeuvre.objects.all().order_by('rubrique__annee') #tri par annee de rubrique
-    queryset = Oeuvre.objects.all().order_by('?') #tri aléatoire
+    queryset = Oeuvre.objects.all().order_by('rubrique__annee') #tri par annee de rubrique
+    #queryset = Oeuvre.objects.all().order_by('?') #tri aléatoire
     paginate_by = 12
 
 
 class accueil(generic.ListView):
     model = Oeuvre
     template_name = 'galerie/accueil.html'
-    
     context_object_name = 'latest_oeuvre_list'
     #queryset = Oeuvre.objects.all().order_by('rubrique__annee') #tri par annee de rubrique
     queryset = Oeuvre.objects.all().order_by('?') #tri aléatoire
-    paginate_by = 12
+    
 
 
 
