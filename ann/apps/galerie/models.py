@@ -34,7 +34,7 @@ class Oeuvre(models.Model):
     titre = models.CharField(max_length=50)
     dimension = models.CharField(max_length=50, null=True, blank=True)
     technique = models.CharField(max_length=50, null=True, blank=True)
-    rubrique = models.ForeignKey(Rubrique, blank=True, null=True)
+    rubrique = models.ForeignKey(Rubrique)
     photo = FilerImageField(blank=True, null=True,on_delete=models.SET_NULL,)
     slug = models.SlugField(
         u'slug',
