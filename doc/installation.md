@@ -23,8 +23,9 @@ python manage.py runserver
 # Dumpdata
 
 ##tout le site
-python manage.py dumpdata -o data.json
-
+python manage.py dumpdata -o dumpdata.json
+sudo mv dumpdata.json /media/store/backup/
+sudo cp -R /media/store/owncloud/data/yogis/files/projets/production/ann/media/ /media/store/backup/ann
 
 ##uniquement les oeuvres
 python manage.py dumpdata galerie.oeuvre -o data_oeuvre.json
@@ -60,7 +61,7 @@ git push origin master
 
 
 # sur pi clone
-git clone https://github.com/geodatup/quorelcms.git
+git clone https://github.com/geodatup/ann.git
 
 
 # sur client pull
