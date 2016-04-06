@@ -27,7 +27,7 @@
                                         {% for oeuvre in rubrique.oeuvre_set.all %}          
                                         <div class="pure-u-1-5" >
                                                 {% thumbnail oeuvre.photo '180x180' crop subject_location=oeuvre.photo.subject_location as photo %}
-                                                <a href="{{ oeuvre.photo.url }}" data-lightbox="oeuvre.titre">
+                                                <a href="{{ oeuvre.get_absolute_url }}">
 
                                                 <img class="pure-img-responsive"  src="{{ photo.url }}"  alt="{{ oeuvre.titre }}" >
                                                 
@@ -35,11 +35,6 @@
                                                 <div class=vignette-oeuvre>
                                                         <p>{% render_model oeuvre "titre" style %}
                                                 </div>
-                                                <div class=vignette-oeuvre>
-                                                        <a href="{{ oeuvre.get_absolute_url }}"> <i class="fa fa-info-circle"></i></a>
-                                                </div>
-
-
                                         </div>
                                         {% endfor %}
                                 </ul>
@@ -79,27 +74,22 @@
                                         {% for oeuvre in rubrique.oeuvre_set.all %}          
                                         <div class="pure-u-1-5" >
                                                 {% thumbnail oeuvre.photo '180x180' crop subject_location=oeuvre.photo.subject_location as photo %}
-                                                <a href="{{ oeuvre.photo.url }}" data-lightbox="oeuvre.titre">
+                                                <a href="{{ oeuvre.get_absolute_url }}">
 
                                                 <img class="pure-img-responsive"  src="{{ photo.url }}"  alt="{{ oeuvre.titre }}" >
                                                 
                                                 </a>
-                                                <div class=vignette-oeuvre>
-                                                        <p>{% render_model oeuvre "titre" style %}
+                                                <div>
+                                                <p>{% render_model oeuvre "titre" style %}
                                                 </div>
-                                                <div class=vignette-oeuvre>
-                                                        <a href="{{ oeuvre.get_absolute_url }}"> <i class="fa fa-info-circle"></i></a>
-                                                </div>
-
                                         </div>
                                         {% endfor %}
                                 </ul>
 
                         </div>
-                
 
 
-                </div>  
+</div>  
 
 {% endif %}
 {% endblock content %}

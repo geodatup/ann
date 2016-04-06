@@ -1,3 +1,10 @@
+.lb-caption > a {
+  
+	text-decoration: none;
+	color: grey;
+}
+
+
 
 .vignette-oeuvre > p, div[class*="cms-plugin-galerie-oeuvre-titre"]{
 	margin-right: 5px;
@@ -108,6 +115,7 @@
 	float: right;
 	max-height: 600px;
 	max-width: 800px;
+	margin-left: 10px;
 	
 }
 .oeuvre-detail > h1 {
@@ -266,7 +274,7 @@ div[id = "col-2"]{
 /*
 Hides the menu at `48em`, but modify this based on your app's needs.
 */
-@media (min-width: 48em) {
+@media (max-width: 34em) {
 
 
 
@@ -295,12 +303,16 @@ Hides the menu at `48em`, but modify this based on your app's needs.
 	padding-right: 0px; 
 	padding-left: 0px;
 }
+#main{
+margin-left: 20px;
+}
+
 #layout.active #menu {
     width: 320px;
 }
 
 #layout.active .menu-link {
-    left: 250px;
+    left: 265px;
 }
 
 
@@ -329,3 +341,11 @@ Hides the menu at `48em`, but modify this based on your app's needs.
 
 }
 
+@media (max-width: 62em) { 
+
+.oeuvre-detail > img {
+	width:50%;
+	height:50%;
+}
+
+}
