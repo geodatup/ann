@@ -25,7 +25,7 @@ Lorsque le nom de domaine sera acheté, l'accès au site se fera par l'URL :
 
 # Ajouter de nouvelles photo d'oeuvre
  
-![annim](modify_page.gif)
+![annim](gif_annim/modify_page.gif)
 
 
 # Ajouter une nouvelle rubrique
