@@ -1,4 +1,7 @@
-# Aller sur le sie
+Bienvenue
+---------
+
+# Aller sur le site
 
 Pour aller sur le site il faut rensegner l'URL suivante dans la barre de recherche du navigateur :
 

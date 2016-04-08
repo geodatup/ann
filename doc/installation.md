@@ -1,7 +1,4 @@
-Readme.md
-
-
-# vitual env
+# virtual env
 source myvenv/bin/activate
 
 #Installation 
