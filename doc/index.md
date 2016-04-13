@@ -1,4 +1,7 @@
-# Aller sur le sie
+Bienvenue
+---------
+
+# Aller sur le site
 
 Pour aller sur le site il faut rensegner l'URL suivante dans la barre de recherche du navigateur :
 
@@ -6,6 +9,7 @@ Pour aller sur le site il faut rensegner l'URL suivante dans la barre de recherc
 
 
 Lorsque le nom de domaine sera acheté, l'accès au site se fera par l'URL :
+
 [http://annauffray.fr](http://annauffray.fr) 
 
 # Se connecter à l'interface d'adminitration
@@ -23,8 +27,8 @@ Lorsque le nom de domaine sera acheté, l'accès au site se fera par l'URL :
 
 
 # Ajouter de nouvelles photo d'oeuvre
+ 
 
-![Alt Text]({annim-add-oeuvre}/annim-add-oeuvre.gif)
 
 
 # Ajouter une nouvelle rubrique
@@ -35,3 +39,4 @@ Lorsque le nom de domaine sera acheté, l'accès au site se fera par l'URL :
 
 # Modifier le contenu d'une page "A propo d'Ann" ou "contact"
 
+![annim](gif_annim/modify_page.gif)
