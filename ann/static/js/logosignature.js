@@ -64,7 +64,7 @@ var pathObj = {
  $('#logo_signature_ann').lazylinepainter( 
  {
     "svgData": pathObj,
-    "strokeWidth": 5,
+    "strokeWidth": 15,
     "strokeColor": "#777"
 }).lazylinepainter('paint'); 
  });
