@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load cms_tags menu_tags sekizai_tags staticfiles thumbnail rubrique_index%}
+{% load cms_tags menu_tags sekizai_tags staticfiles thumbnail rubrique_index %}
 
 
 {% block menu_rub %}
@@ -26,15 +26,23 @@
                                 <ul  class="list-inline" class="thumbnails"> 
                                         {% for oeuvre in rubrique.oeuvre_set.all %}          
                                         <div class="pure-u-1-5" >
-                                                {% thumbnail oeuvre.photo '180x180' crop subject_location=oeuvre.photo.subject_location as photo %}
-                                                <a href="{{ oeuvre.get_absolute_url }}">
+                                                {% if oeuvre.photo %}
+                                                        {% thumbnail oeuvre.photo '180x180' crop subject_location=oeuvre.photo.subject_location as photo %}
+                                                        <a href="{{ oeuvre.get_absolute_url }}">
 
-                                                <img class="pure-img-responsive"  src="{{ photo.url }}"  alt="{{ oeuvre.titre }}" >
-                                                
-                                                </a>
-                                                <div class=vignette-oeuvre>
-                                                        <p>{% render_model oeuvre "titre" style %}
+                                                        <img class="pure-img-responsive"  src="{{ photo.url }}"  alt="" >                                           
+                                                        </a>
+                                                        <div class=vignette-oeuvre>
+                                                                <p>{% render_model oeuvre "titre" style %}
+                                                        </div>
+                                                {% else %}
+                                                <div class=vignette-oeuvre style="padding-top: 10px">
+                                                 <a href="{{ oeuvre.get_absolute_url }}">
+                                                        <p>{% render_model oeuvre "titre" style %}</p>
+                                                 </a>
                                                 </div>
+
+                                                {% endif %}
                                         </div>
                                         {% endfor %}
                                 </ul>
@@ -73,15 +81,24 @@
                                 <ul  class="list-inline" class="thumbnails"> 
                                         {% for oeuvre in rubrique.oeuvre_set.all %}          
                                         <div class="pure-u-1-5" >
-                                                {% thumbnail oeuvre.photo '180x180' crop subject_location=oeuvre.photo.subject_location as photo %}
-                                                <a href="{{ oeuvre.get_absolute_url }}">
+                                                {% if oeuvre.photo %}
+                                                        {% thumbnail oeuvre.photo '180x180' crop subject_location=oeuvre.photo.subject_location as photo %}
+                                                        <a href="{{ oeuvre.get_absolute_url }}">
 
-                                                <img class="pure-img-responsive"  src="{{ photo.url }}"  alt="{{ oeuvre.titre }}" >
-                                                
-                                                </a>
-                                                <div>
-                                                <p>{% render_model oeuvre "titre" style %}
+                                                        <img class="pure-img-responsive"  src="{{ photo.url }}"  alt="" >                                           
+                                                        </a>
+                                                        <div class=vignette-oeuvre>
+                                                                <p>{% render_model oeuvre "titre" style %}
+                                                        </div>
+                                                {% else %}
+                                                <div class=vignette-oeuvre style="padding-top: 10px">
+                                                 <a href="{{ oeuvre.get_absolute_url }}">
+                                                        <p>{% render_model oeuvre "titre" style %}</p>
+                                                 </a>
                                                 </div>
+
+
+                                                {% endif %}
                                         </div>
                                         {% endfor %}
                                 </ul>

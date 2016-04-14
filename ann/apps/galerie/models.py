@@ -21,7 +21,6 @@ class Rubrique(models.Model):
     )
     icon = FilerImageField(blank=True, null=True,on_delete=models.SET_NULL,)
 
-
     def get_absolute_url(self):
         return reverse('galerie:rubriqueDetail', kwargs={'slug': self.slug, })
         
@@ -34,6 +33,7 @@ class Oeuvre(models.Model):
     titre = models.CharField(max_length=50)
     dimension = models.CharField(max_length=50, null=True, blank=True)
     technique = models.CharField(max_length=50, null=True, blank=True)
+    article = HTMLField(blank=True, null=True)
     rubrique = models.ForeignKey(Rubrique)
     photo = FilerImageField(blank=True, null=True,on_delete=models.SET_NULL,)
     slug = models.SlugField(

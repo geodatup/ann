@@ -30,7 +30,10 @@
 
 <div id="content" class="content" >	
     <h1>{% render_model oeuvre "titre" %}</h1>
+    
+    {% if oeuvre.photo %}
     <div class="oeuvre-detail" >
+    
     	{% thumbnail oeuvre.photo '800x800' upscale subject_location=oeuvre.photo.subject_location as photo %}
             
         <img 
@@ -38,17 +41,21 @@
           width="{{ photo.widht }}" 
           height="{{ photo.height }}" 
           alt="{{ oeuvre.titre}}"
-        > 
+        >
+         
         <div class="legende-oeuvre">            
                 {% if oeuvre.technique %}
                 <p>{{ oeuvre.technique }}</p>
                 {% endif %}    
                 {% if oeuvre.dimension %}
                 <p >{{ oeuvre.dimension }}</p>
-                {% endif %} 
-        </div>
-        
-        <a href="javascript:showhide('social')"><i class="fa fa-commenting-o"></i><p>Partager ou commenter cette oeuvre</p>
+                {% endif %}                            
+        </div>        
+    </div>
+    
+    
+
+        <a href="javascript:showhide('social')"><p>Partager ou commenter cette oeuvre<i class="fa fa-commenting-o"></i></p>
           
         </a>
         <div id="social" class="social" style="display:none;">
@@ -59,7 +66,6 @@
                             data-action="like" 
                             data-show-faces="false"
                             data-share="true">
-
                             
             </div>
             <div id="disqus_thread">
@@ -67,7 +73,10 @@
             </div>
 
         </div>
-
+    {% endif %}
+    {% if oeuvre.article %}
+    <p>{% render_model oeuvre "article"  %}</p>
+    {% endif %}
     </div>
     
 </div>

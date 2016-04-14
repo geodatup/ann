@@ -26,6 +26,7 @@ class OeuvreAdmin(ImportExportModelAdmin):
           'titre',
           'dimension',
           'technique',
+          'article',
           'rubrique',          
           'photo'
         )         
