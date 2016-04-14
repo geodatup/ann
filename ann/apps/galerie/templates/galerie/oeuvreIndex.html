@@ -17,7 +17,7 @@
 	{% endblock header %}
 	<div class="pure-g">
 		{% if latest_oeuvre_list %}		    
-		    {% for oeuvre in latest_oeuvre_list %}
+		    {% for oeuvre in latest_oeuvre_list|slice:":16" %}
 		    <div class="pure-u-1-5">
 
 		    {% if oeuvre.photo %}	
