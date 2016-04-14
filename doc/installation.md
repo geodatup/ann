@@ -1,5 +1,6 @@
 # virtual env
 source myvenv/bin/activate
+workon myenv
 
 #Installation 
 

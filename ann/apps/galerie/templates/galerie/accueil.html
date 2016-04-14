@@ -19,7 +19,7 @@
 		    {% thumbnail oeuvre.photo '180x180' crop subject_location=oeuvre.photo.subject_location as photo %}
 		
 			    <a href="{{ oeuvre.photo.url }}" data-lightbox="oeuvre.rubrique" data-title="<a href={{ oeuvre.get_absolute_url }}>{{ oeuvre.titre }}</a>">
-			    	<img class="pure-img-responsive"  src="{{ photo.url }}"  alt="{{ oeuvre.titre }}">
+			    	<img class="pure-img-responsive"  src="{{ photo.url }}"  alt="">
 			    </a>
 			                   
 			</div>
