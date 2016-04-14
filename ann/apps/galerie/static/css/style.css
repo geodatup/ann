@@ -1,3 +1,31 @@
+
+
+/* Force the scroll bar to the left hand side of the screen */
+.jspVerticalBar
+{
+	left: 0;
+}
+
+.scroll-pane
+{
+	width: 100%;
+	height: 200px;
+	overflow: auto;
+}
+
+#menu{
+	position: absolute;
+	height: 720px;
+	margin-top: 100px;
+	padding-top: 0px;
+}
+
+
+.pure-menu-item.active{
+    background: #ddd;
+}
+
+
 .lb-caption > a {
   
 	text-decoration: none;
@@ -18,15 +46,8 @@
  
 }
 
-
-
-.pure-menu-item.active{
-    background: #ddd;
-}
-
-
 .main{
-	min-height: 1000px;
+	min-height: 890px;
 }
 
 .nav {
@@ -142,7 +163,7 @@ a > .fa-info-circle {
   padding-top: 5px;
 }
 
- a > .fa-commenting-o {
+a > .fa-commenting-o {
 
 }
 
@@ -213,7 +234,6 @@ div[class*="cms-plugin-galerie-rubrique-article"] {
 }
 
 .social{
-	
 	
 	position: absolute;
 }

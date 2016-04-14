@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="{% static "css/lightbox.min.css"%}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="{% static "css/style.css"%}">
+        <link rel="stylesheet" type="text/css" href="{% static "css/jquery.jscrollpane.css"%}">
 
         {% render_block "css" %}
     </head>
@@ -26,7 +27,8 @@
     <a href="#menu" id="menuLink" class="menu-link">
         <!-- Hamburger icon -->
         <span></span>
-    </a>  
+    </a> 
+
         <div class="main">
             
             <div class="header">
@@ -35,46 +37,53 @@
                 
                 {% show_menu 0 100 100 100 %}
                 </ul>                         
-            </div> 
-            
+            </div>             
                
-                {% block content %}{% endblock content %}               
+                {% block content %}{% endblock content %}   
+
                 {% block article %}{% endblock article %}
 
-        </div>
-        <div id="menu">
-           {% block menu_rub %}{% endblock menu_rub %}
+           
+
+       
+            {% block menu_rub %}{% endblock menu_rub %}
+         
+        
+        </div>  
+    <footer>
+
+            {% include "footer.html" %}      
+            {% render_block "js" %}
+
+            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+            <script src="{% static "js/lightbox-plus-jquery.min.js"%}"></script>
+            <script src="{% static "js/ui.js"%}"></script>
+            <script src="{% static "js/jquery.lazylinepainter-1.7.0.min.js"%}"></script>
+            <script src="{% static "js/logosignature.js"%}"></script>
+            <script src="{% static "js/jquery.mousewheel.js"%}"></script>            
+            <script src="{% static "js/jquery.jscrollpane.min.js"%}"></script>
+
                 
-        </div>    
+            <script type="text/javascript">
+            lightbox.option({
+                'resizeDuration': 200,
+                'wrapAround': true,
+                'showImageNumberLabel' : false,
+            })
+            
+            $(function()
+            {
+                $('.scroll-pane').jScrollPane();
+            });
+                
+
+
+
+            </script>
+        </footer>       
+    
+
     </div>  
-
-
-
-<footer>
-
-
-{% include "footer.html" %}      
-{% render_block "js" %}
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-<script src="{% static "js/lightbox-plus-jquery.min.js"%}"></script>
-<script src="{% static "js/ui.js"%}"></script>
-<script src="{% static "js/jquery.lazylinepainter-1.7.0.min.js"%}"></script>
-<script src="{% static "js/logosignature.js"%}"></script>
-
-
-    
-<script type="text/javascript">
-lightbox.option({
-    'resizeDuration': 200,
-    'wrapAround': true,
-    'showImageNumberLabel' : false,
-})
-</script>
-</footer>
-
-
-
-    
+   
         
 </html>

@@ -78,7 +78,7 @@ appears on the left side of the page.
 */
 
 #menu {
-    margin-left: -150px; /* "#menu" width */
+    margin-left: -170px; /* "#menu" width */
     width: auto; /*150px;*/
     margin-top: 40px;
     padding-top: 72px;
@@ -251,7 +251,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
         left: 280px;
     }
     #menu {
-    margin-left: -280px;
+    margin-left: -300px;
     }
 
 }

@@ -1,9 +1,14 @@
 footer {
+    margin-top:-20px;
+
     background-color: #FFF;
     color: #8A8A8A;
     padding: 25px;
     text-align: center;
     border-top: 1px solid #eee;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
 }
 
 footer > a {
@@ -14,3 +19,4 @@ footer > a {
 footer > a:hover {
             color: grey;
     }
+

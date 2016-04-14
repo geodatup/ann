@@ -1,29 +1,31 @@
 
 {% load cms_tags sekizai_tags staticfiles thumbnail mytags %}
-<ul class="pure-menu-list">
-{% for rubrique in rubriqueList %}
-    
-	{% if urlRubMatchOeuvre == rubrique.get_absolute_url %}
-    <li class="pure-menu-item active">
-    
-    {% thumbnail rubrique.icon '50x50' crop subject_location=rubrique.icon.subject_location as icon %}
-
-    <img src="{{ icon.url }}">
-    <a href="{{ rubrique.get_absolute_url}}" class="pure-menu-link">{{ rubrique }}</a> 
-
-    </li>
-    {% else %}
-    <li class="pure-menu-item">
-    
-    {% thumbnail rubrique.icon '50x50' crop subject_location=rubrique.icon.subject_location as icon %}
-
-    <img src="{{ icon.url }}">
-    <a href="{{ rubrique.get_absolute_url}}" class="pure-menu-link">{{ rubrique }}</a> 
-
-    </li>
-    {% endif %}
-{% endfor %}
-</ul>
 
 
+<div id="menu"  class="menu  pure-menu-scrollable scroll-pane jspScrollable">   
 
+    <ul class="pure-menu-list ">
+    {% for rubrique in rubriqueList %}
+        
+    	{% if urlRubMatchOeuvre == rubrique.get_absolute_url %}
+        <li class="pure-menu-item active">
+        
+        {% thumbnail rubrique.icon '50x50' crop subject_location=rubrique.icon.subject_location as icon %}
+
+        <img src="{{ icon.url }}">
+        <a href="{{ rubrique.get_absolute_url}}" class="pure-menu-link">{{ rubrique }}</a> 
+
+        </li>
+        {% else %}
+        <li class="pure-menu-item">
+        
+        {% thumbnail rubrique.icon '50x50' crop subject_location=rubrique.icon.subject_location as icon %}
+
+        <img src="{{ icon.url }}">
+        <a href="{{ rubrique.get_absolute_url}}" class="pure-menu-link">{{ rubrique }}</a> 
+
+        </li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+</div>    
