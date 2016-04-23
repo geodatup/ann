@@ -25,6 +25,7 @@ Ici, vous pouvez créer des dossiers et importer un lot d'images. Ces images ser
 # Ajouter une nouvelle rubrique
 
 Pour ajouter une rubrique il faut au préalable être en mode édition :
+
 [http://annauffray.fr/fr/?edit](http://annauffray.fr/fr/?edit)
 
 Puis séléctionner le menu *Ann!*, puis "Rubrique" puis "Ajouter une nouvelle rubrique"
@@ -33,6 +34,7 @@ Puis séléctionner le menu *Ann!*, puis "Rubrique" puis "Ajouter une nouvelle r
 # Ajouter une nouvelle oeuvre
 
 Pour ajouter une nouvelle oeuvre il faut au préalable être en mode édition :
+
 [http://annauffray.fr/fr/?edit](http://annauffray.fr/fr/?edit)
 
 Puis séléctionner le menu *Ann!*, puis "Oeuvre" puis "Ajouter une nouvelle oeuvre"
