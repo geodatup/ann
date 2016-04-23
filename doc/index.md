@@ -16,7 +16,7 @@ Pour administrer le site et son contenu, il faut rensegner l'URL suivante dans l
 Il faut alors renseigner son login et mot de passe pour entrer en mode *edition*.
 
 
-# Ajouter de nouvelles photo d'oeuvre
+# Ajouter de nouvelles photos d'oeuvre
  
 [http://annauffray.fr/fr/admin/filer/folder](http://annauffray.fr/fr/admin/filer/folder)
 
@@ -46,6 +46,8 @@ Attention,
 Si l'oeuvre n'est pas un texte alors laissez le champs "article" vide.
 Car une oeuvre peut aussi être un article (uniquement du texte). 
 Si c'est le cas remplissez le champs "article". 
+
+![capture](capture_ecran/add_oeuvre_article.JPG).
 
 # Modifier le contenu d'une page "A propo d'Ann" ou "contact"
 
