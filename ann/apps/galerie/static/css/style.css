@@ -283,8 +283,8 @@ div[id = "col-2"]{
 	margin-top: -50px;
 	width: 500px;
 	height: 500px;
-	animation: myAnim 1s forwards;
-	animation-delay: 5s;
+	animation: myAnim 2s forwards;
+	animation-delay: 7s;
     
 }
 
