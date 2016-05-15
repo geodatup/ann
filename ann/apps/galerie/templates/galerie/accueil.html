@@ -15,14 +15,21 @@
 		{% if latest_oeuvre_list %}
 		    
 		    {% for oeuvre in latest_oeuvre_list|slice:":16" %}
-		    <div class="pure-u-1-5">
-		    {% thumbnail oeuvre.photo '180x180' crop subject_location=oeuvre.photo.subject_location as photo %}
-		
-			    <a href="{{ oeuvre.photo.url }}" data-lightbox="oeuvre.rubrique" data-title="<a href={{ oeuvre.get_absolute_url }}>{{ oeuvre.titre }}</a>">
-			    	<img class="pure-img-responsive"  src="{{ photo.url }}"  alt="">
-			    </a>
-			                   
-			</div>
+			    <div class="pure-u-1-5">
+			    {% if oeuvre.photo %}
+				    {% thumbnail oeuvre.photo '180x180' crop subject_location=oeuvre.photo.subject_location as photo %}
+				
+					    <a href="{{ oeuvre.photo.url }}" data-lightbox="oeuvre.rubrique" data-title="<a href={{ oeuvre.get_absolute_url }}>{{ oeuvre.titre }}</a>">
+					    	<img class="pure-img-responsive"  src="{{ photo.url }}"  alt="">
+					    </a>
+				{% else %}
+					<div class=vignette-oeuvre style="padding-top: 10px">
+						<a href="{{ oeuvre.get_absolute_url }}">
+						<p>{% render_model oeuvre "titre" style %}</p>
+						</a>
+					</div>
+				{% endif %}                   
+				</div>
 		    {% endfor %}
 		{% else %}
 		    <p>Aucune oeuvre n'existe.</p>
