@@ -11,7 +11,7 @@
         <link rel="stylesheet" type="text/css" href="{% static "css/footer.css"%}">
         <link rel="stylesheet" type="text/css" href="{% static "css/layouts/side-menu.css"%}">
         <link rel="stylesheet" type="text/css" href="{% static "css/layouts/pure-min.css"%}">
-        <link rel="stylesheet" href="{% static "css/lightbox.min.css"%}">
+        <link rel="stylesheet" type="text/css" href="{% static "css/lightbox.min.css"%}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
         {% render_block "css" %}
@@ -37,25 +37,36 @@
                 {% block article %}{% endblock article %}
 
         </div>
+    
+    <footer>
+
+
+        {% include "footer.html" %}      
+        {% render_block "js" %}
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script src="{% static "js/lightbox-plus-jquery.min.js"%}"></script>
+        
+        <script src="{% static "js/ui.js"%}"></script>
+        <script src="{% static "js/signature.js"%}"></script>        
+        <script src="{% static "js/jquery.lazylinepainter-1.7.0.min.js"%}"></script>
+
+        
+        <script type="text/javascript">
+            lightbox.option({
+                'resizeDuration': 200,
+                'wrapAround': true,
+                'showImageNumberLabel' : false,
+            })
+
            
+            </script>
+
+        </footer> 
     </div>  
 
 
 
-<footer>
-
-
-{% include "footer.html" %}      
-{% render_block "js" %}
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-<script src="{% static "js/lightbox-plus-jquery.min.js"%}"></script>
-<script src="{% static "js/ui.js"%}"></script>
-<script src="{% static "js/jquery.lazylinepainter-1.7.0.min.js"%}"></script>
-<script src="{% static "js/signature.js"%}"></script>
-
-
-</footer>
 
 
 
