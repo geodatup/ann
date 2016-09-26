@@ -7,6 +7,7 @@ from django.conf.urls import *  # NOQA
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.http import HttpResponse
 
 admin.autodiscover()
 
@@ -16,6 +17,7 @@ urlpatterns = i18n_patterns('',
         {'sitemaps': {'cmspages': CMSSitemap}}),
     url(r'^select2/', include('django_select2.urls')),
     url(r'^', include('cms.urls')),
+    url(r'^robots.txt$', lambda r: HttpResponse("User-agent: *\nDisallow: /", mimetype="text/plain"))
 )
 
 # This is only needed when using runserver.
