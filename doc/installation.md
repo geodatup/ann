@@ -40,31 +40,34 @@ python manage.py loaddata /home/yogis/Projects/ann/data.json
 Voir la documentation DjangoGirls
 
 # install et init du repo
+~~~
 git init
 # config git
  git config --global user.name hugo.roussaffa
  git config --global user.email geodatup@gmail.com
 
 # .gitignore
+~~~
 
-
-
+~~~
 git add -A .
 git commit -m "init"
+~~~
 
 # publier sur le nouveau repo
-
+~~~
 git remote add origin https://github.com/geodatup/ann.git
 git push origin master
-
+~~~
 
 # sur pi clone
-git clone https://github.com/geodatup/ann.git
-
+~~~
+git clone https://github.com/***.git
+~~~
 
 # sur client pull
 ~~~
-git pull https://github.com/geodatup/ann.git master
+git pull https://github.com/***.git master
 ~~~
 # créer un env virtuel
 ~~~
@@ -113,7 +116,7 @@ git push origin master
 ###clone Git (1er déployement)
 ~~~
 git clone https://github.com/***.git
-~~~
+
 
 virtualenv --python=python3.4 myvenv
 source myvenv/bin/activate
@@ -124,23 +127,14 @@ pip install django-leaflet
 pip install django-geojson
 pip install django-import-export
 pip install mysqlclient
-
+~~~
 
 # create database
 mysql 
 pwsd : ***
-
+~~~
 python manage.py collectstatic
+~~~
 
 
-
-
-
-
-
-###DEPUIS POSTE QUALIF - Pythonanywhere (myvenv)
-cd /QuOrEl
-git pull
-
-python manage.py migrate
 
