@@ -63,15 +63,18 @@ git clone https://github.com/geodatup/ann.git
 
 
 # sur client pull
+~~~
 git pull https://github.com/geodatup/ann.git master
-
+~~~
 # créer un env virtuel
+~~~
 cd quorelcms
 virtualenv --python=python3.4 myvenv
 source myvenv/bin/activate
+~~~
 
 # installer django et les requierment (requirement.mb)
-...
+
 # lancer la migration
 Necéssite de créer un autre projet cms à coté puis de lancer 
 python manage.py migrate 
@@ -86,28 +89,31 @@ python manage.py loaddata data_final.json
 ```
 
 #puis collecter les fichiers static
+~~~
 python manage.py collectstatic
-
+~~~
 
 
 
 # creer le super utilisateur
+~~~
 python manage.py createsuperuser
-
+~~~
 
 
 #Commande GIT 
 ###DEPUIS POSTE DEV
+~~~
 git add -A .
 git commit -m "auto comment"
 git push origin master
-
+~~~
 
 
 ###clone Git (1er déployement)
-
-git clone https://github.com/yougis/QuOrEL.git
-
+~~~
+git clone https://github.com/***.git
+~~~
 
 virtualenv --python=python3.4 myvenv
 source myvenv/bin/activate
@@ -122,7 +128,7 @@ pip install mysqlclient
 
 # create database
 mysql 
-pwsd : mcot9a9.t
+pwsd : ***
 
 python manage.py collectstatic
 
