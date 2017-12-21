@@ -1,37 +1,63 @@
 # virtual env
-source myvenv/bin/activate
-workon myenv
+`source myvenv/bin/activate`
+`workon myenv`
 
 #Installation 
 
-djangocms -f -p . ann
+`djangocms -f -p . ann`
 
 
-export DJANGO_SETTINGS_MODULE=ann.settings.local
-export DJANGO_SETTINGS_MODULE=ann.settings.production
+`export DJANGO_SETTINGS_MODULE=ann.settings.local`
+`export DJANGO_SETTINGS_MODULE=ann.settings.production`
 
-python manage.py makemigrations galerie
-python manage.py migrate
+`python manage.py makemigrations galerie`
+`python manage.py migrate`
 
 
-python manage.py runserver
+`python manage.py runserver`
 
 
 
 # Dumpdata
+##Automatiquement aver crontab et Rsync
 
-##tout le site
-python manage.py dumpdata -o dumpdata.json
-sudo mv dumpdata.json /media/store/backup/
-sudo cp -R /media/store/owncloud/data/yogis/files/projets/production/ann/media/ /media/store/backup/ann
+créer un fichier batch
+~~~
+#!/bin/sh
+
+#########################################################
+# Script to backup django website
+# #########################################################
+# directory which we save incremental changes to
+BACKUPDIR=`date +%Y-%m-%d`
+
+
+cd ~/production/ann
+
+python manage.py dumpdata -o $BACKUPDIR/dumpdata.json
+
+sudo cp -R media $BACKUPDIR/media
+
+~~~
+
+Sur le serveur/Nas configurer les taches de backup
+
+
+##Manuellement 
+
+###Tout le site
+
+`python manage.py dumpdata -o dumpdata.json`
+`sudo mv dumpdata.json /media/store/backup/`
+`sudo cp -R /media/store/owncloud/data/yogis/files/projets/production/ann/media/ /media/store/backup/ann`
 
 ##uniquement les oeuvres
-python manage.py dumpdata galerie.oeuvre -o data_oeuvre.json
+`python manage.py dumpdata galerie.oeuvre -o data_oeuvre.json`
 
 
 
 #charger les données
-python manage.py loaddata /home/yogis/Projects/ann/data.json
+`python manage.py loaddata /home/yogis/Projects/ann/data.json`
 
 
 
@@ -71,17 +97,17 @@ git pull https://github.com/***.git master
 ~~~
 # créer un env virtuel
 ~~~
-cd quorelcms
+cd ann
 virtualenv --python=python3.4 myvenv
 source myvenv/bin/activate
 ~~~
 
-# installer django et les requierment (requirement.mb)
+# installer django et les requierement (requirement.txt)
 
-# lancer la migration
+# lancer la migration d'un cms 
 Necéssite de créer un autre projet cms à coté puis de lancer 
 python manage.py migrate 
-dans le projet quorelcms
+dans le projet ann
 (sinon ça ne marche pas... la table n'existe pas dit il...)
 
 
@@ -102,39 +128,5 @@ python manage.py collectstatic
 ~~~
 python manage.py createsuperuser
 ~~~
-
-
-#Commande GIT 
-###DEPUIS POSTE DEV
-~~~
-git add -A .
-git commit -m "auto comment"
-git push origin master
-~~~
-
-
-###clone Git (1er déployement)
-~~~
-git clone https://github.com/***.git
-
-
-virtualenv --python=python3.4 myvenv
-source myvenv/bin/activate
-
-
-pip install Django==1.9 whitenoise
-pip install django-leaflet
-pip install django-geojson
-pip install django-import-export
-pip install mysqlclient
-~~~
-
-# create database
-mysql 
-pwsd : ***
-~~~
-python manage.py collectstatic
-~~~
-
 
 
