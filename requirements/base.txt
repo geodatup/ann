@@ -20,3 +20,4 @@ Pillow>=2.3
 django-sekizai>=0.7
 six
 django-import-export
+django_select2
