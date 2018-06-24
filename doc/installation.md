@@ -105,10 +105,51 @@ source myvenv/bin/activate
 # installer django et les requierement (requirement.txt)
 
 # lancer la migration d'un cms 
-Necéssite de créer un autre projet cms à coté puis de lancer 
-python manage.py migrate 
-dans le projet ann
-(sinon ça ne marche pas... la table n'existe pas dit il...)
+Necéssite de créer un autre projet cms et d'utiliser sa base project.db comme base sur laquelle lancer 
+python manage.py migrate depuis dans le projet ann
+
+```
+Operations to perform:
+  Synchronize unmigrated apps: treebeard, djangocms_admin_style, staticfiles, cmsplugin_filer_file, cmsplugin_filer_utils, cmsplugin_filer_video, sitemaps, import_export, gunicorn, cmsplugin_filer_teaser, sekizai, messages, cmsplugin_filer_folder, cmsplugin_filer_image
+  Apply all migrations: easy_thumbnails, djangocms_googlemap, admin, contenttypes, djangocms_style, sites, sessions, djangocms_column, djangocms_link, cms, djangocms_text_ckeditor, djangocms_inherit, auth, menus, filer
+Synchronizing apps without migrations:
+  Creating tables...
+    Creating table cmsplugin_filer_image_filerimage
+    Creating table cmsplugin_filer_file_filerfile
+    Creating table cmsplugin_filer_folder_filerfolder
+    Creating table cmsplugin_filer_teaser_filerteaser
+    Creating table cmsplugin_filer_video_filervideo
+    Running deferred SQL...
+  Installing custom SQL...
+Running migrations:
+  Rendering model states...Traceback (most recent call last):
+  File "manage.py", line 10, in <module>
+    execute_from_command_line(sys.argv)
+  File "/var/www/django/ann/myvenv/lib/python3.5/site-packages/django/core/management/__init__.py", line 354, in execute_from_command_line
+    utility.execute()
+  File "/var/www/django/ann/myvenv/lib/python3.5/site-packages/django/core/management/__init__.py", line 346, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/var/www/django/ann/myvenv/lib/python3.5/site-packages/django/core/management/base.py", line 394, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/var/www/django/ann/myvenv/lib/python3.5/site-packages/django/core/management/base.py", line 445, in execute
+    output = self.handle(*args, **options)
+  File "/var/www/django/ann/myvenv/lib/python3.5/site-packages/django/core/management/commands/migrate.py", line 222, in handle
+    executor.migrate(targets, plan, fake=fake, fake_initial=fake_initial)
+  File "/var/www/django/ann/myvenv/lib/python3.5/site-packages/django/db/migrations/executor.py", line 100, in migrate
+    state.apps  # Render all real_apps -- performance critical
+  File "/var/www/django/ann/myvenv/lib/python3.5/site-packages/django/utils/functional.py", line 59, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/var/www/django/ann/myvenv/lib/python3.5/site-packages/django/db/migrations/state.py", line 166, in apps
+    return StateApps(self.real_apps, self.models)
+  File "/var/www/django/ann/myvenv/lib/python3.5/site-packages/django/db/migrations/state.py", line 232, in __init__
+    self.render_multiple(list(models.values()) + self.real_models)
+  File "/var/www/django/ann/myvenv/lib/python3.5/site-packages/django/db/migrations/state.py", line 270, in render_multiple
+    "for more" % (new_unrendered_models, get_docs_version())
+django.db.migrations.state.InvalidBasesError: Cannot resolve bases for [<ModelState: 'cmsplugin_filer_file.FilerFile'>, <ModelState: 'cmsplugin_filer_video.FilerVideo'>, <ModelState: 'cmsplugin_filer_teaser.FilerTeaser'>, <ModelState: 'cmsplugin_filer_folder.FilerFolder'>, <ModelState: 'cmsplugin_filer_image.FilerImage'>]
+This can happen if you are inheriting models from an app with migrations (e.g. contrib.auth)
+ in an app with no migrations; see https://docs.djangoproject.com/en/1.8/topics/migrations/#dependencies for more
+```
+
 
 
 # deplacer les fichiers media
